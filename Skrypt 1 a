@@ -1,0 +1,97 @@
+Skrypt 1 – zadania
+
+
+
+    • polecenie „apropos”:
+	  - search the manual page names and description
+    np. apropos passwd
+
+    • polecenie „whatis”:
+      - display one-line manual page description
+	    np. whatis apropos
+
+    • opis budowy pliku /etc/passwd: man 5 passwd
+
+      Zadanie 2:
+      less /etc/passwd
+      /12
+
+      Zadanie 3:
+      head -17 /etc/passwd
+      tail -21 /etc/passwd
+      head -27 /etc/passwd | tail -1
+      
+      Zadanie 4:
+      wc - drukowanie informacji o zawartości pliku
+      
+      Zadanie 5:
+      uniq - report or omit repeated lines
+      
+      Zadanie 6:
+      cal
+      cal -d 2015-12
+      cal -d 1752-09
+      
+      Zadanie 7:
+      bc
+      
+      Zadanie 8:
+      pwd - print name of current/working directory
+      
+      Zadanie 9:
+      cd /tmp
+      cd ~
+      
+      Zadanie 10:
+      ls /tmp
+      ls -l           long listing format
+      ls -d           list directories themselves, not their contents
+      ls -i           print the index number of each file
+      ls -t           sort by modification time, newest first
+      ls -R           list subdirectiories recursively
+      
+      Zadanie 11:
+      echo $HOME
+      echo $PATH
+      echo $PS1
+      
+      Zadanie 12:
+      /var/log/wtmp
+      
+      Zadanie 13:
+      who - wyświetlanie informacji o zalogowanych użytkownikach
+      w - kto jest zalogowany i co aktualnie robi
+      
+      Zadanie 14:
+      id      - print UID, GID
+      
+      
+      ZADANIA Z LINIAMI KOMEND:
+      
+      Z1: wc -l /etc/passwd
+      Z2: cat /etc/passwd | awk -F: '{if($3==14) print $5}'
+      Z3:
+      Z4:
+      Z5:
+      Z6:
+      Z7:
+      
+      
+      ZADANIE SPRAWDZAJĄCE:
+      1.
+      2.
+      3.
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+
+ 
