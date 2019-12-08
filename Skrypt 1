@@ -70,17 +70,17 @@ Skrypt 1 – zadania
       
       Z1: wc -l /etc/passwd
       Z2: cat /etc/passwd | awk -F: '{if($3==14) print $5}'
-      Z3:
-      Z4:
-      Z5:
-      Z6:
-      Z7:
+      Z3: cat /etc/passwd | awk -F: '{print $4}' | grep "1000" | wc -l
+      Z4: cat /etc/passwd | awk -F: '{if($7=="/bin/bash") print $0}' | wc -l
+      Z5: cat /etc/passwd | awk -F: '{if($3>12000) print $0}' | wc -l
+      Z6: ls home var usr
+      Z7: echo -e 0"\n"1"\n"2"\n"3"\n"4"\n"5
       
       
       ZADANIE SPRAWDZAJĄCE:
-      1.
-      2.
-      3.
+      1. ls -al / | wc -l
+      2. who | wc -l
+      3. wc -c /usr/include/utime.h
       
       
       
