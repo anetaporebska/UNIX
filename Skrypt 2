@@ -1,0 +1,66 @@
+
+  2: cat /etc/passwd | awk -F: '{print $3}'
+  
+  <       przekierowanie zawartosci pliku na wejscie polecenia
+  >       przekierowanie wyjscia polecenia do pliku (z nadpisaniem dotychczasowej zawartosci pliku)
+  >>      doklejenie wyjscia polecenia na koniec wskazanego pliku
+  
+  Zadanie 1:
+    tr        translate or delete characters
+      tr -d 'eak'
+   
+    cut       remove sections of each line of files
+              print selected part of lines from each file to standard output
+      cat /etc/passwd | cut -d":" -f 4
+      
+      
+  Zadanie 2:
+      cat /etc/passwd | awk -F: '{if($3==14) print $5}'
+      
+  Zadanie 3:
+      cat /etc/passwd | awk -F: '{if($4=='`id -g`') print $0}' | wc -l
+      
+  Zadanie 4:
+      cat /etc/passwd | awk -F: '{if($7=="/bin/bash") print $0}' | wc -l
+      
+  Zadanie 5:
+      cat /etc/passwd | awk -F: '{if($3>20) print $3}' | wc -l
+      
+  Zadanie 6:
+      cat /etc/group | awk -F: '{print $3}' | sort -n | tail -1
+      
+  Zadanie 7:
+      echo $((`cat /etc/group | wc -l` - `cat /etc/passwd | awk -F: '{print $4}' | sort -n | uniq | wc -l`)) 
+      
+  Zadanie 8:
+      cat /etc/group | awk -F: '{if($4=="") print $0}' | wc -l
+      
+  Zadanie 9:
+      cat /etc/passwd | awk -F: '{if(length($1)==8) print $1}' | wc -l
+      
+  Zadanie 10:
+      man ls >> plik
+      man pwd > plik
+      
+  
+  OPERACJE NA PLIKACH:
+  
+  1.  mkdir -p $HOME/c2/text $HOME/c2/bin
+  2.  ls -l         ls -R
+  3.  chmod u+rw plik
+  4.
+  5. aneta@aneta-VirtualBox:/bin$ cp ls ~/c2/bin/moj_ls
+     cp -r /usr/include/reglib ~/c2
+
+
+
+
+  Zadania sprawdzajace:
+  1: cat /etc/passwd | awk -F: '{print $4}' | sort -n | uniq -c | awk '{if($1>1) print $0}' | awk '{if($1<4) print $0}' | wc -l
+  2: cat /etc/passwd | awk -F: '{if($7=="/usr/sbin/nologin") print $0}' | wc -l
+  3: cat /etc/passwd | awk -F: '{print $5}' | grep "nowak" | wc -l
+  4: 
+
+
+
+
