@@ -1,0 +1,25 @@
+
+
+  find      - search for files in a directory hierarchy
+  
+  SUID - program zawarty w uruchamianym pliku wykonywany jest z uprawnieniami wlasciela indywidualnego
+          pliku, a nie uzytkownika uruchomiajacego program
+          
+  SGID - dla plikow: program zawarty w uruchamianym pliku wykonywany jest z uprawnieniami wlasciciela
+                      grupowego pliku, a nie uzytkowanika uruchomiajacego program
+                      
+         dla katalogow: pliki dziedzicza po katalogu, w ktorym sie znajduja wlasciela grupowego             
+
+  Sticky bit
+  
+  
+  Zadania:
+  
+  1. ls -R
+  2. "s" - SUID +x
+      "S" - SUID
+      "t" - stickybit + x
+      "T" - stickybit
+  3. chmod, przez wlasciela 
+  7. 
+      
