@@ -1,0 +1,11 @@
+//Ile argumentow zostalo przekazanych
+
+
+#!/bin/bash
+LICZNIK=1
+echo "Argumentow: $#"
+while [ $1 ]; do
+	echo "argument nr $LICZNIK: $1"
+	LICZNIK=`expr $LICZNIK + 1`
+	shift
+done
