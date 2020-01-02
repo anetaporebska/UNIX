@@ -1,0 +1,11 @@
+#!/bin/bash
+if [ $# -eq 0 ]; then
+	echo -n "Podah UID: "
+	read uid
+fi
+opis=`cat /etc/passwd | awk -F: '{print $3,$5}' | grep "^${uid} " | awk '{print $2}'`
+if [ $opis ]; then
+	echo "uzytkownik $uid to $opis"
+else
+	echo "uzytkownik $uid bez opisu"
+fi
