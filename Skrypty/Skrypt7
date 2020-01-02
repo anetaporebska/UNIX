@@ -1,0 +1,20 @@
+//Postawowe operacje arytmetyczne
+
+#!/bin/bash
+A=$1
+B=$2
+echo -n "$A + $B = "
+WYNIK=`expr $A + $B`
+echo "$WYNIK"
+echo -n "$A - $B = "
+WYNIK=`expr $A - $B`
+echo "$WYNIK"
+echo -n "$A * $B = "
+WYNIK=`expr $A \* $B`
+echo "$WYNIK"
+echo -n "$A / $B = "
+WYNIK=`expr $A / $B`
+echo "$WYNIK"
+echo -n "$A % $B = "
+WYNIK=`expr $A % $B`
+echo "$WYNIK"
