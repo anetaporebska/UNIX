@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Oto zawartosc katalogu ${PWD}: "
+echo ${PWD}/*
+echo "Oto zawartosc katalogu ${PWD} ktora zaczyna sie na listerke a"
+echo ${PWD}/a*
