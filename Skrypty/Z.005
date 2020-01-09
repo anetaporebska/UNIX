@@ -1,0 +1,18 @@
+#!/bin/bash
+if (( $# == 0 )); then
+	echo "podaj uid"
+	read uid
+	opis=`cat /etc/passwd | awk -F: '{print $3,$5}'| grep "^${uid} " | awk '{print $2}'
+        `
+	echo "$opis"
+	exit
+fi
+
+while [[ $1 ]]
+do
+	uid=$1
+	opis=`cat /etc/passwd | awk -F: '{print $3,$5}'| grep "^${uid} " | awk '{print $2}'
+	`
+	echo "$opis"
+	shift
+done
