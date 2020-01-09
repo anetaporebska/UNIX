@@ -1,0 +1,13 @@
+#!/bin/bash
+licznik=1
+if (( $# == 0 )); then
+	echo "nie podano argumentow"
+	exit
+fi
+
+while [[ $1 ]]
+do
+	echo "Argument $licznik to $1"
+	licznik=$((licznik + 1))
+	shift
+done
