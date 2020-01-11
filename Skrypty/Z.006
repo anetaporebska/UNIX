@@ -1,0 +1,22 @@
+#!/bin/bash
+
+NAME=$(echo $0 | awk -F'/' '{print $NF}')
+for i in *; do
+        if [[ $i != NAME ]]; then
+                if [[ -f $i ]]; then
+                        echo -n "$i to plik: "
+                        if [[ -r $i ]]; then
+                                echo -n "r"
+                        fi
+                        if [[ -w $i ]]; then
+                                echo -n "w"
+                        fi
+                        if [[ -x $i ]]; then
+                                echo -n "x"
+                        fi
+                        echo "" 
+                elif [[ -d $i ]]; then
+                        echo "$i to katalog"
+                fi
+        fi
+done 
