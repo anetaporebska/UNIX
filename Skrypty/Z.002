@@ -1,0 +1,18 @@
+#!/bin/bash
+
+trap 'echo "SIGINT" ; exit 2' SIGINT
+
+if (( $# == 1 )); then
+	CZAS=$1
+elif (( $# == 0 )); then
+	echo -n "podaj czas: "
+	read CZAS
+else
+	echo "nieprawidlowa liczba arguemntow"
+	exit 1
+fi
+
+while [[ 1 ]]; do
+	echo $( ps -e --no-headers | wc -l )
+	sleep $CZAS
+done
