@@ -1,0 +1,30 @@
+#!/bin/bash
+
+if [[ $# == 0 ]]; then
+	echo -n "podaj sciezke dostepu do pliku: "
+	read SCIEZKA
+elif [[ $# > 1 ]]; then
+	echo "podano nieprawidolowa liczbe argumentow"
+	exit 2;
+else
+	SCIEZKA=$1
+fi
+
+PLIK=$( echo $SCIEZKA | awk -F'/' '{print $NF}')
+
+if [[ ! -f $SCIEZKA ]]; then
+	echo "to nie jest plik"
+	exit 3
+fi
+
+if [[ -r $PLIK ]]; then
+	echo -n "r"
+fi
+
+if [[ -w $PLIK ]]; then
+	echo -n "w"
+fi
+
+if [[ -x $PLIK ]]; then
+	echo -n "x"
+fi
