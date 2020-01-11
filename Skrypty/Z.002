@@ -1,0 +1,41 @@
+#!/bin/bash
+
+if [[ $# != 3 ]]; then
+	echo "nieprawidlowa liczba argumentow"
+	exit 1
+fi
+
+if [[  ! -f $1 ]]; then
+	echo "to nie jest plik regularny"
+	exit 2
+fi
+
+if [[ ! -r $1 ]]; then
+	echo "brak uprawnien do czytania pliku"
+	exit 3
+fi
+
+if [[ ! -d $2 ]]; then
+	echo "to nie jest katalog"
+	exit 4
+fi
+
+if [[ ! -w $2 ]]; then
+	echo "brak prawa zapisu do katalogu"
+	exit 5
+fi
+
+if [[ $3 < 1 ]]; then
+	echo "liczba kopiowan mniejsza od 0"
+	exit 6
+fi
+
+NAZWA=$( echo $1 | awk -F'/' '{print $NF}')
+i=1
+
+while (( i <= $3 ))
+do
+	NOWA=$NAZWA-kopia-$i
+	cp $1 $2/$NOWA
+	i=$(( i + 1 ))
+done
