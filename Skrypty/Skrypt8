@@ -1,0 +1,11 @@
+#!/bin/bash
+if [[ $# == 0 ]]; then
+	echo "brak argumentow"
+	exit 1
+fi
+ZLICZ=0
+for i in $* ; do
+	echo "argument $i"
+	ZLICZ=$(( ZLICZ + $i ))
+done
+echo "suma: $ZLICZ"
