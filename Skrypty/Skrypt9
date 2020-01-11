@@ -1,0 +1,5 @@
+#!/bin/bash
+for (( i=1 ; $i<=$# ; i=$i+1 )); do
+	echo -n "argument $i to: "
+	echo ${!i}
+done
