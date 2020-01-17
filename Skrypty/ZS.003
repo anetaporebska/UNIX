@@ -1,0 +1,35 @@
+#!/bin/bash
+
+if [[ $# == 0 ]]; then
+	echo "nie podano arguemntow, jako pierwsza podaj bla bla"
+	exit 1
+fi
+
+if [[ $# != 2 ]]; then
+	echo "podano zla liczbe arguamntwo"
+	exit 2
+fi
+
+if [[ ! -d $2 ]]; then
+	echo "argument drugi to nie katalog"
+	exit 3
+fi
+
+if [[ ! -x $2 ]]; then
+	echo "nie masz uprawnien do zapisu w tym katalogu"
+	exit 4
+fi
+
+
+
+if [[ ! -f $1 ]]; then
+	echo "argument pierwszy to nie plik"
+	exit 5
+fi
+
+if [[ ! -r $2 ]]; then
+	echo "nie masz uprawnien zeby przeniesc plik"
+	exit 6
+fi
+
+cp $1 $2
