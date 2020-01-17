@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [[ $# == 0 ]]; then
+	echo "nie podano argumentow"
+	exit 2
+fi
+
+while [[ $1 ]]
+do
+	ile=`find $1 -type f | wc -l`
+	echo "$1 : $ile"
+	shift
+done
