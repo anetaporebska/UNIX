@@ -1,0 +1,28 @@
+#!/bin/bash
+
+#liczba procesow usera o podanym uid
+
+if [[ $# > 1 ]]; then
+	echo "podano nieprawidlowa liczbe argumentow"
+	exit 1
+fi
+
+if [[ $# == 0 ]]; then
+	echo -n "podaj uid usera: "
+	read uid
+else
+	uid=$1
+fi
+
+#czy w ogole jest taki user
+czy=`cat /etc/passwd | cut -d: -f 3 | grep "$uid"`
+echo "$czy"
+
+if [[ ! $czy ]]; then
+	echo "nie ma takiego usera!"
+	exit 3
+fi
+
+ile=`ps -U $uid | wc -l`
+ile=$((ile - 1)) 	#bo pierwszy wiersz to nazwa kolumn
+echo "user o UID $uid ma uruchomionych $ile procesow"
