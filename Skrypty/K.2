@@ -1,0 +1,34 @@
+#!/bin/bash
+
+#Skrypt ktory jako arugument przyjmuje nazwe uzytkownika i jesli nie ma arg
+#to ma przyjac biezacego uzytkownika. wypisac liczbe logowan i czy jest 
+#aktualnie zalogowany
+#czy w ogole taki uzytkownik istnieje
+
+
+if [[ $# > 1 ]]; then
+	echo "podano nieprawidlowa liczbe arg"
+	exit 1
+fi
+
+if [[ $# == 0 ]]; then
+	uzytkownik=`whoami`
+else
+	uzytkownik=$1
+	spr=`cat /etc/passwd | grep "^$1:"`
+	if [[ ! $spr ]]; then
+		echo "nie ma takiego uzytkownika"
+		exit 2
+	fi
+fi
+
+
+zalogowany=`who | grep "^$uzytkownik "`
+
+if [[ $zalogowany ]]; then
+	echo "Uzytkownik $uzytkownik jest aktualnie zalogownany"
+fi
+
+ile=`last $uzytkownik | wc -l`
+ile=$(( ile - 2 ))
+echo "uzytkownik $uzytkonik byl zalogowany $ile razy"
