@@ -1,0 +1,15 @@
+#!/bin/bash
+
+trap 'echo `date` ; exit 1' 2
+
+while [[ 1 ]];
+do
+
+	lista=`who | cut -d' ' -f 1`
+
+	for i in $lista; do
+		ile=`ps -U $i | wc -l`
+		echo "$i ma procesow: $ile"
+	done
+sleep 2
+done
