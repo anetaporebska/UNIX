@@ -1,0 +1,51 @@
+#!/bin/bash
+
+#dostajesz plik, katalog i liczbe n i musisz stworzyc N podkatalogow
+#o konkretenej nazwie gdzie do kazdego kopiujesz ten plik
+#jesli juz podkatalog taki istnieje to nie trzeba tworzyc tylko skopiowac
+
+if [[ $# != 3 ]]; then
+	echo "podano nieprawidlowa liczbe arguementow"
+	exit 1
+fi
+
+if [[ ! -d $2 ]]; then
+	echo "argument drugi to nie katalog"
+	exit 2
+fi
+
+if [[ ! -x $2 ]]; then
+	echo "nie masz prawa zapisu do tego katalogu"
+	exit 3
+fi
+
+if [[ ! -f $1 ]]; then
+	echo "arugment pierwszy to nie plik"
+	exit 4
+fi
+
+if [[ ! -r $1 ]]; then
+	echo "nie masz wystarczajacyhc praw zeby skopiowac ten plik"
+	exit 5
+fi
+
+if [[ $3 <= 0 ]]; then
+	echo "liczba kopiowan nie moze byc mniejsza rowna 0"
+	exit 6
+fi
+
+
+
+
+
+i=1
+while (( i <= $3 )); do
+	nazwa=podkatalog$i
+	if [[ -d $2/$nazwa ]]; then
+		cp ~/$1 $2/$nazwa/
+	else
+		mkdir $2/$nazwa
+		cp ~/$1 $2/$nazwa/
+	fi
+	i=$(( i + 1 ))
+done
