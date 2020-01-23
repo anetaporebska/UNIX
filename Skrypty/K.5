@@ -1,0 +1,43 @@
+#!/bin/bash
+
+#skrypt, który przyjmuje jeden argument, będący ścieżką do pliku
+#regularnego. Jeżeli brak argumentów lub są one niepoprawne,
+# skryptkończy działanie z informacją o błędzie i kodem wyjścia różnym od0.
+#Co ok. cztery sekundy skrypt sprawdza, czy zmieniła się data
+# modyfi-kacji lub rozmiar wskazanego pliku i, jeżeli tak, to
+# wypisuje stosownykomunikat. Jeżeli plik zostanie usunięty w czasie
+# „obserwacji”, to skryptkończy działanie.
+
+
+if (( $# != 1 )); then
+	echo "niepoprawna liczba argumentow"
+	exit 1
+fi
+
+if [[ ! -f $1 ]]; then
+	echo "to nie jest plik regualarny"
+	exit 2
+fi
+echo "$1"
+date=`ls -l $1 | cut -d' ' -f 6,7,8`
+size=`ls -l $1 | cut -d' ' -f 5`
+
+while [[ -f $1 ]]; do
+	newdate=`ls -l $1 | cut -d' ' -f 6,7,8`
+	newsize=`ls -l $1 | cut -d' ' -f 5`
+	
+	if [[ "$newdate" != "$date" ]]; then
+		echo "data modyfikacji zostala zmieniona"
+		date=$newdate
+	fi
+
+	if [[ "$newsize" != "$size" ]]; then
+		echo "rozmiar sie zmienil"
+		size=$newsize
+	fi
+sleep 4
+
+done
+
+
+exit 4
